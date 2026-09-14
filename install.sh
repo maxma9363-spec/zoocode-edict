@@ -9,13 +9,8 @@ error() {
 
 install() {
     #make backup of existing custom_modes.yaml
-    if [ -f "$install_dir/custom_modes.yaml" ]; then
-        cp "$install_dir/custom_modes.yaml" "$install_dir/custom_modes.yaml.bak"
-        echo "[INFO] Backup made."
-    else
-        echo "[INFO] No custom_modes.yaml found. No backup needed."
-    
-    fi
+    cp "$install_dir/custom_modes.yaml" "$install_dir/custom_modes.yaml.bak"
+    echo "[INFO] Backup made."
 
     #load the config
     source_dir=$(cd -- "$(dirname "$0")" && pwd)

@@ -1,2 +1,3 @@
 /install-audit.md
 .vscode/
+*.code-workspace

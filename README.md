@@ -61,13 +61,30 @@ ZooCode ships with five built-in modes: `architect`, `code`, `ask`, `debug`, and
 
 ### A concrete example: research an event and build a browsable demo
 
-Suppose you ask: *"Research the Deepwater Horizon oil spill — causes, timeline, key figures — and build a small web app where a user can browse the findings."*
+#### ✅ Already built — browse the delivered demo
+
+This example is no longer hypothetical. The research-plus-build task described below was actually carried out and shipped as a **static, browsable demo** with three views — **Timeline**, **Causes**, and **Key Figures** — where every finding links back to its traceable sources.
+
+| | Entry point | How to use it |
+|---|-------------|---------------|
+| 🔗 | **Live Demo (GitHub Pages)** | [https://maxma9363-spec.github.io/zoocode-edict/](https://maxma9363-spec.github.io/zoocode-edict/) — *requires GitHub Pages to be enabled in the repo first; see [`deploy/README-pages.md`](deploy/README-pages.md)* |
+| 💻 | **Run locally (always available)** | `python3 -m http.server 8000 --directory demo` then open [http://localhost:8000/](http://localhost:8000/) |
+| 📂 | **Demo source** | [`demo/`](demo/) — [`index.html`](demo/index.html) · [`styles.css`](demo/styles.css) · [`app.js`](demo/app.js) · [`data/findings.json`](demo/data/findings.json) |
+| 📖 | **Deployment notes** | [`deploy/README-pages.md`](deploy/README-pages.md) — [`pages.yml`](.github/workflows/pages.yml) |
+
+> ⚠️ **Honest status:** the Pages site is **not online yet**. The publishing workflow ([`.github/workflows/pages.yml`](.github/workflows/pages.yml)) is already in the repo, but the site only becomes reachable after the code is pushed and **Settings → Pages → Source** is set to **GitHub Actions**. Until then, the local command above is the guaranteed way to view the demo.
+
+**Data at a glance:** 13 timeline entries · 7 causes · 17 figures (12 individuals + 5 organizations) · 19 sources — all cross-referenced.
+
+#### How this demo was produced
+
+Here is the single request the demo started from: *"Research the Deepwater Horizon oil spill — causes, timeline, key figures — and build a small web app where a user can browse the findings."*
 
 This is a research-plus-build task with a frontend (a browsable page) and a backend (the data behind it).
 
 **With a single built-in mode**, one agent must research, decide, code the frontend and backend, test, and document — all in one context. If it settles on a poor data model early, that choice propagates unchecked to the end.
 
-**With zoocode-edict**, the same task flows through a pipeline:
+**With zoocode-edict**, the same task flows through a pipeline — this is the path that actually produced the demo linked above:
 
 | Step | Role | What happens |
 |------|------|--------------|
@@ -83,7 +100,7 @@ This is a research-plus-build task with a frontend (a browsable page) and a back
 | 10 | **Xingbu** | **Final review** — full regression across code + docs + deploy before sign-off. |
 | 11 | **Report back** | Results are summarized and returned to you. |
 
-The plan is reviewed *before* work starts, the output is verified *before* delivery, and problems are rolled back rather than shipped.
+The plan is reviewed *before* work starts, the output is verified *before* delivery, and problems are rolled back rather than shipped. The browsable demo at the top of this section is the concrete end product of exactly this path.
 
 ### Side-by-side comparison
 
@@ -101,7 +118,7 @@ The plan is reviewed *before* work starts, the output is verified *before* deliv
 
 ## Installation & Usage
 
-> ⚠️ **Special Note:** *Hubu* is configured by default to use a custom [Poe Perplexity MCP Server](LINK) for web search and deep research. If you do not use this server, you can easily adjust *Hubu*'s system prompt in the ZooCode GUI to match your local tool setup.
+> ⚠️ **Special Note:** *Hubu* is configured by default to use a custom Poe Perplexity MCP server for web search and deep research. If you do not use this server, you can easily adjust *Hubu*'s system prompt in the ZooCode GUI to match your local tool setup.
 
 zoocode-edict comes with **three cross-platform installer scripts**. Pick the one that matches your OS:
 

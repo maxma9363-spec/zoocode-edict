@@ -1,0 +1,59 @@
+# 兵部 · GitHub Pages 部署流水线（方案A）
+#
+# 用途：将 demo/ 目录（Deepwater Horizon 事件档案静态 Demo）作为站点根发布到
+#       https://maxma9363-spec.github.io/zoocode-edict/
+#
+# 设计取舍（方案A 优于方案B /docs）：
+#   1. 零侵入：不复制、不移动、不改名 demo/ 下任何文件（该目录属工部产物）
+#   2. demo/ 天然成为站点根，index.html 位于根路径，演示 URL 无多余路径段
+#   3. 避免 /docs 目录与「源码目录」语义混淆，也避免仓库根新增重复副本
+#
+# 前置条件（需用户在 GitHub 仓库设置中一次性开启，详见 deploy/README-pages.md）：
+#   Settings → Pages → Build and deployment → Source 选择「GitHub Actions」
+#   （若 Source 为「Deploy from a branch」，本 workflow 的部署步骤不会接管站点）
+#
+# 回滚：删除本文件，并将 Settings → Pages → Source 切回 None。
+
+name: Deploy Demo to GitHub Pages
+
+on:
+  # 主分支推送时自动发布
+  push:
+    branches: [main]
+  # 支持手动触发（Actions 页面 → Run workflow）
+  workflow_dispatch:
+
+# GitHub Pages 部署所需的最小权限集
+permissions:
+  contents: read   # 读取仓库内容
+  pages: write     # 写入 Pages 站点
+  id-token: write  # OIDC 令牌，供 deploy-pages 校验部署来源
+
+# 同一时刻只允许一个 Pages 部署；新部署取消进行中的旧部署，避免竞态
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # 关键步骤：直接以 demo/ 作为站点根打包上传，不产生任何文件副本
+      - name: Upload demo/ as Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: demo
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

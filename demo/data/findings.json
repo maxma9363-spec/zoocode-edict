@@ -1,0 +1,365 @@
+{
+  "title": "Deepwater Horizon / Macondo Well Blowout (April 20, 2010)",
+  "summary": "On the evening of April 20, 2010, the semisubmersible drilling rig Deepwater Horizon was completing BP's Macondo exploratory well (Mississippi Canyon Block 252, about 50 miles off Louisiana) when an undetected influx of hydrocarbons escalated into a blowout; escaping gas ignited in two explosions and 11 crew members died. The rig burned for roughly 36 hours and sank on the morning of April 22, 2010, after which hydrocarbons flowed uncontrolled from the well for 87 days. The well was finally capped by a capping stack on July 15, 2010, secured by a static kill in early August, and permanently sealed by a relief-well 'bottom kill' on September 19, 2010. Official investigations by the President's National Commission (January 2011), the BOEMRE/U.S. Coast Guard Joint Investigation Team (September 2011) and the U.S. Chemical Safety Board (Vols. 1-2, 2016) attributed the disaster to a chain of well-integrity, testing, equipment and management failures rather than to a single technical fault.",
+  "causes": [
+    {
+      "id": "c1",
+      "title": "Cement barrier failed to isolate hydrocarbons in the well annulus",
+      "detail": "The primary well barrier was the cement job pumped by Halliburton. Investigators concluded the cement did not create an effective annular seal, allowing hydrocarbons to migrate up the annulus from the reservoir. The cement was a nitrogen-foamed design whose performance was questionable in the Macondo conditions, and BP chose not to run a cement bond log or other acoustic verification of the barrier before proceeding to temporary abandonment.",
+      "sourceIds": ["s2", "s3", "s5"]
+    },
+    {
+      "id": "c2",
+      "title": "Negative pressure test was misinterpreted on April 20, 2010",
+      "detail": "Before temporary abandonment the crew ran a negative pressure test on the Macondo well. The test produced anomalous pressure readings (notably pressure on the kill line and continuing flow) that indicated a leak or communication path. The results were interpreted as a successful test - reportedly explained away as a 'bladder effect' - by BP wellsite leaders and Transocean personnel, so the crew proceeded with the belief that the well was isolated when it was not.",
+      "sourceIds": ["s2", "s3", "s4"]
+    },
+    {
+      "id": "c3",
+      "title": "Well design choices driven by schedule and cost",
+      "detail": "BP's completion design for Macondo differed from the more conservative option: it ran a single 'long string' production casing to surface instead of a liner with a tieback, which removed a potential barrier against annular flow, and it used only six centralizers on the casing rather than the larger number recommended by Halliburton, increasing the risk of an incomplete cement seal. Investigators judged that schedule and cost considerations displaced risk analysis in these decisions.",
+      "sourceIds": ["s2", "s3"]
+    },
+    {
+      "id": "c4",
+      "title": "Mud circulation and lost-circulation risks were under-managed before cementing",
+      "detail": "The mud circulation performed before cementing was less extensive than best practice would indicate, reducing the ability to condition the hole and remove debris. Halliburton had also raised concerns about severe lost-circulation and gas-flow potential in the Macondo well. The combination left the well's barriers more dependent on a cement job that ultimately did not isolate the reservoir; BP's own internal investigation likewise identified these as contributing well-integrity issues.",
+      "sourceIds": ["s2", "s3", "s18"]
+    },
+    {
+      "id": "c5",
+      "title": "Blowout preventer (BOP) failed to regain well control",
+      "detail": "The Deepwater Horizon's subsea BOP did not shut in the well. The U.S. Chemical Safety Board determined that the BOP's blind shear ram failed to seal the wellbore because the drill pipe had buckled and was displaced off-centre within the ram cavity - a phenomenon that was not recognised at the time - so the ram could not cut and seal the pipe. Earlier BOP elements had also been activated, and the stack had known maintenance and control-system vulnerabilities.",
+      "sourceIds": ["s5", "s6", "s7"]
+    },
+    {
+      "id": "c6",
+      "title": "The influx (kick) was not detected or responded to in time",
+      "detail": "Hydrocarbons entered the riser and flowed onto the rig floor before being routed through the mud-gas vent system. Aspects of the rig's gas-detection and alarm configuration, and the crew's interpretation of well-monitoring data during the final abandonment steps, meant the escalating influx was not recognised and diverted in time. The Joint Investigation Report identified failures across both operator and contractor personnel in monitoring and well-control response.",
+      "sourceIds": ["s3", "s4", "s18"]
+    },
+    {
+      "id": "c7",
+      "title": "Systemic management, safety-culture and regulatory failures",
+      "detail": "The National Commission found the blowout's root causes were systemic rather than the product of a single error: inadequate risk management and a deficient safety culture within BP and its contractors, combined with a regulator (the Minerals Management Service) that lacked the authority, resources and technical capacity to oversee deepwater operations effectively. Cost and time pressure and the absence of a robust engineering culture were identified as enabling conditions for the individual technical failures above.",
+      "sourceIds": ["s2", "s13"]
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2010-04-20",
+      "title": "Macondo well blowout, explosions and fire aboard Deepwater Horizon",
+      "detail": "While the crew completed the Macondo exploratory well, an undetected hydrocarbon influx became a blowout. Gas ignited in two explosions and fed a fire that could not be extinguished. Eleven workers died. Reported time of the initial event varies slightly between sources (about 9:50 p.m. CT per the Joint Investigation Report; about 10:00 p.m. CT per NOAA). The BOP did not activate and failed to shut in the well.",
+      "sourceIds": ["s1", "s3", "s14"]
+    },
+    {
+      "date": "2010-04-22",
+      "title": "Deepwater Horizon rig sinks; uncontrolled discharge begins",
+      "detail": "At about 10:30 a.m. CT, roughly 36 hours after the explosion, the rig sank to the seabed in approximately 5,000 feet (1,524 m) of water, and the discharge of oil and natural gas from the well began in earnest. Aerial dispersant operations also began that day. Eleven crew members were still missing and were presumed dead.",
+      "sourceIds": ["s1", "s2", "s9"]
+    },
+    {
+      "date": "2010-04-29",
+      "title": "Spill declared a 'national disaster'; federal response mobilised",
+      "detail": "The incident was declared a spill of national significance, triggering a coordinated federal response led by the National Incident Commander, U.S. Coast Guard Admiral Thad Allen. NOAA and other agencies began extensive surface and subsea monitoring.",
+      "sourceIds": ["s15", "s2"]
+    },
+    {
+      "date": "2010-05-02",
+      "title": "First relief well begins drilling",
+      "detail": "BP began drilling a relief well intended to intersect and permanently kill the Macondo well; a second relief well began on May 16, 2010. Relief drilling ultimately took about four and a half months to complete.",
+      "sourceIds": ["s1", "s8"]
+    },
+    {
+      "date": "2010-05-26",
+      "title": "'Top kill' attempt fails (May 26-28)",
+      "detail": "BP pumped thousands of barrels of heavy drilling mud into the well over three days in an attempt to overcome the flow and plug the well. The operation, known as a 'top kill', was unsuccessful, with mud returning to the sea through the BOP.",
+      "sourceIds": ["s1", "s15"]
+    },
+    {
+      "date": "2010-07-15",
+      "title": "Capping stack closes; leaking stops after 87 days",
+      "detail": "From July 10 to July 15 BP installed a tighter-sealing capping stack over the well. After a roughly 24-hour delay to repair a minor leak in the stack, BP closed the valves and began a well-integrity test at 2:25 p.m. CT on July 15, 2010; for the first time in 87 days no oil flowed into the Gulf. The well was not yet permanently sealed.",
+      "sourceIds": ["s1", "s2", "s8"]
+    },
+    {
+      "date": "2010-08-03",
+      "title": "Static kill succeeds (August 3-5)",
+      "detail": "With the capping stack stabilising the well, BP injected heavy drilling mud and then cement into the well through the BOP at lower pressures than the failed top kill. The static kill succeeded - reportedly by late evening on August 3 - and was followed by cementing, clearing the way for the bottom kill.",
+      "sourceIds": ["s2", "s8", "s14"]
+    },
+    {
+      "date": "2010-09-19",
+      "title": "Relief well 'bottom kill' completed; Macondo well declared dead",
+      "detail": "The first relief well intercepted the Macondo well and cement was injected to form a permanent seal (bottom kill operations ran from about September 16 to 19, 2010). On September 19, roughly 152 days after the blowout, Admiral Allen announced the Macondo 252 well was effectively dead, confirmed by the Bureau of Ocean Energy Management. The second relief well was not completed.",
+      "sourceIds": ["s1", "s2", "s8"]
+    },
+    {
+      "date": "2011-01-11",
+      "title": "President's National Commission releases final report",
+      "detail": "The National Commission on the BP Deepwater Horizon Oil Spill and Offshore Drilling delivered its final report to the President, concluding that the blowout was the product of systemic failures in risk management, safety culture and regulatory oversight across BP, its contractors and the government, and recommending major offshore-drilling safety reforms.",
+      "sourceIds": ["s2", "s13"]
+    },
+    {
+      "date": "2011-09-14",
+      "title": "BOEMRE / U.S. Coast Guard Joint Investigation Report finalised",
+      "detail": "The Bureau of Ocean Energy Management, Regulation and Enforcement and the U.S. Coast Guard released the final volume of their joint investigation, which examined the technical causes of the blowout and the efficacy of well-control and containment equipment, and identified failures by BP, Transocean and Halliburton.",
+      "sourceIds": ["s3", "s4"]
+    },
+    {
+      "date": "2012-11-15",
+      "title": "BP agrees to plead guilty to federal crimes and pay a record $4 billion",
+      "detail": "BP Exploration & Production Inc. agreed to plead guilty to 14 criminal counts - including 11 counts of felony manslaughter, one count of felony obstruction of Congress and Clean Water Act and Migratory Bird Treaty Act violations - and to pay $4 billion in criminal fines and penalties, including $1.256 billion in criminal fines. The plea was accepted and sentence imposed in January 2013.",
+      "sourceIds": ["s10", "s11"]
+    },
+    {
+      "date": "2015-07-02",
+      "title": "BP agrees to an $18.7 billion settlement with five Gulf states",
+      "detail": "BP announced a framework settlement of approximately $18.7 billion to resolve claims with the states of Alabama, Florida, Louisiana, Mississippi and Texas for economic and environmental damages under the Clean Water Act and related laws, payable over roughly 18 years.",
+      "sourceIds": ["s12", "s13"]
+    },
+    {
+      "date": "2015-10-05",
+      "title": "BP consent decree worth about $20.8 billion lodged with the court",
+      "detail": "BP and the United States lodged a proposed consent decree in MDL 2179 (Judge Carl Barbier, U.S. District Court for the Eastern District of Louisiana) resolving federal Clean Water Act civil penalties and natural resource damage claims, with a total value of about $20.8 billion - the largest settlement with a single entity in U.S. history. The decree was entered in 2016.",
+      "sourceIds": ["s12", "s19"]
+    }
+  ],
+  "figures": [
+    {
+      "name": "Tony Hayward",
+      "role": "Group Chief Executive Officer",
+      "org": "BP p.l.c.",
+      "note": "Led BP at the time of the blowout and throughout the initial response; heavily criticised for his public handling of the crisis, he stepped down and was succeeded by Bob Dudley effective October 1, 2010.",
+      "sourceIds": ["s2", "s13"]
+    },
+    {
+      "name": "Bob Dudley",
+      "role": "Group Chief Executive Officer (from October 2010)",
+      "org": "BP p.l.c.",
+      "note": "Took over from Tony Hayward during the Gulf spill response and led BP through the subsequent investigations, litigation and settlements.",
+      "sourceIds": ["s13", "s14"]
+    },
+    {
+      "name": "Donald Vidrine",
+      "role": "Wellsite leader (senior BP representative aboard Deepwater Horizon)",
+      "org": "BP America",
+      "note": "Was aboard the rig and involved in the negative pressure test on April 20, 2010. Charged with 11 counts of involuntary manslaughter (plus a Clean Water Act count); the Clean Water Act count was dismissed and the manslaughter charges were dismissed by the court in 2015, a decision upheld on appeal.",
+      "sourceIds": ["s2", "s16"]
+    },
+    {
+      "name": "Robert Kaluza",
+      "role": "Wellsite leader aboard Deepwater Horizon",
+      "org": "BP America",
+      "note": "Also aboard during the final abandonment operations and questioning the negative pressure test. Charged with 11 counts of involuntary manslaughter and a Clean Water Act violation; the Clean Water Act count was dismissed and he was found not guilty by a jury in February 2016.",
+      "sourceIds": ["s16", "s17"]
+    },
+    {
+      "name": "John Guide",
+      "role": "Wells Team Leader, Gulf of Mexico deepwater exploration",
+      "org": "BP America",
+      "note": "Key BP engineering decision-maker for the Macondo well; his decisions on the long-string casing design and the number of casing centralizers, and disagreements over well procedures, featured prominently in investigative testimony.",
+      "sourceIds": ["s2", "s4"]
+    },
+    {
+      "name": "David Rainey",
+      "role": "Vice President, Gulf of Mexico Exploration",
+      "org": "BP America",
+      "note": "Testified about BP's internal flow-rate estimates during the response and was charged with obstruction of Congress and making false statements; he was acquitted by a jury in 2015.",
+      "sourceIds": ["s2", "s13"]
+    },
+    {
+      "name": "Steven Newman",
+      "role": "President and Chief Executive Officer",
+      "org": "Transocean Ltd.",
+      "note": "Led the owner and operator of the Deepwater Horizon rig during the incident and the subsequent investigations. Transocean later agreed to plead guilty to a Clean Water Act misdemeanour and pay $1.4 billion in civil and criminal penalties.",
+      "sourceIds": ["s2", "s13"]
+    },
+    {
+      "name": "Jimmy Harrell",
+      "role": "Offshore Installation Manager (OIM) aboard Deepwater Horizon",
+      "org": "Transocean Ltd.",
+      "note": "Senior Transocean authority on the rig; gave widely reported testimony about disagreements with BP over the negative pressure test and safety concerns in the final hours before the blowout.",
+      "sourceIds": ["s2", "s4"]
+    },
+    {
+      "name": "Thad Allen",
+      "role": "National Incident Commander; retired U.S. Coast Guard Commandant",
+      "org": "U.S. Coast Guard",
+      "note": "Directed the unified federal response to the spill, including approval of containment and well-kill operations, and announced on September 19, 2010 that the Macondo 252 well was effectively dead.",
+      "sourceIds": ["s2", "s1"]
+    },
+    {
+      "name": "Bob Graham",
+      "role": "Co-chair, National Commission on the BP Deepwater Horizon Oil Spill",
+      "org": "President's National Commission (United States)",
+      "note": "Former U.S. Senator (Florida) and co-chair of the commission whose January 2011 final report assigned systemic responsibility and recommended sweeping offshore-drilling reforms.",
+      "sourceIds": ["s2", "s13"]
+    },
+    {
+      "name": "William K. Reilly",
+      "role": "Co-chair, National Commission on the BP Deepwater Horizon Oil Spill",
+      "org": "President's National Commission (United States)",
+      "note": "Former Administrator of the U.S. Environmental Protection Agency and co-chair of the commission; co-authored its conclusions on management and regulatory failure.",
+      "sourceIds": ["s2", "s13"]
+    },
+    {
+      "name": "Carl Barbier",
+      "role": "U.S. District Judge, Eastern District of Louisiana",
+      "org": "United States District Court",
+      "note": "Presided over the consolidated multidistrict litigation (MDL 2179) arising from the spill, made the findings of fact on the causes and the volume of oil discharged (about 3.19 million barrels released into the Gulf), and handled the Clean Water Act penalty phase and the 2015 consent decree.",
+      "sourceIds": ["s8", "s19"]
+    },
+    {
+      "name": "BP p.l.c. (BP Exploration & Production Inc.)",
+      "role": "Lease operator of Mississippi Canyon Block 252 (Macondo well); 65% working-interest owner",
+      "org": "BP p.l.c.",
+      "note": "Operator of the well and the company legally responsible for the blowout. Found grossly negligent by the court in the Clean Water Act phase in 2014; paid criminal penalties (about $4 billion) and the largest single-entity civil settlement in U.S. history (about $20.8 billion).",
+      "sourceIds": ["s10", "s12", "s9"]
+    },
+    {
+      "name": "Transocean Ltd.",
+      "role": "Owner and operator of the Deepwater Horizon drilling rig; drilling contractor",
+      "org": "Transocean Ltd.",
+      "note": "Employed the rig crew and owned the BOP stack. Settled civil claims with the United States for about $1.4 billion and agreed to plead guilty to a Clean Water Act misdemeanour.",
+      "sourceIds": ["s2", "s13"]
+    },
+    {
+      "name": "Halliburton",
+      "role": "Cementing contractor for the Macondo well",
+      "org": "Halliburton Company",
+      "note": "Performed the cement job intended to isolate the reservoir and recommended casing centralizer requirements; its role in the failed cement barrier drew sustained scrutiny from congressional and other investigators.",
+      "sourceIds": ["s2", "s3"]
+    },
+    {
+      "name": "Cameron International",
+      "role": "Manufacturer of the Deepwater Horizon blowout preventer",
+      "org": "Cameron International Corporation",
+      "note": "Built the subsea BOP stack whose blind shear ram failed to seal the well on April 20, 2010. The CSB's findings focused on the BOP's design assumptions and the unrecognised pipe-buckling failure mode rather than a single manufacturing defect.",
+      "sourceIds": ["s5", "s7"]
+    },
+    {
+      "name": "Anadarko Petroleum / MOEX Offshore 2007",
+      "role": "Minority working-interest co-owners of Mississippi Canyon Block 252",
+      "org": "Anadarko Petroleum Corporation; MOEX Offshore 2007 LLC (Mitsui subsidiary)",
+      "note": "Held 25% (Anadarko) and 10% (MOEX) non-operating interests in the Macondo well and became defendants in the litigation; both subsequently settled with BP, with MOEX also settling federal civil penalty claims.",
+      "sourceIds": ["s9", "s13"]
+    }
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Deepwater Horizon Oil Spill Timeline",
+      "url": "https://response.restoration.noaa.gov/timelines/deepwater-horizon-oil-spill",
+      "publisher": "NOAA Office of Response and Restoration"
+    },
+    {
+      "id": "s2",
+      "title": "Deep Water: The Gulf Oil Disaster and the Future of Offshore Drilling - Report to the President (Final Report, January 2011)",
+      "url": "https://www.govinfo.gov/content/pkg/GPO-OILCOMMISSION/pdf/GPO-OILCOMMISSION.pdf",
+      "publisher": "National Commission on the BP Deepwater Horizon Oil Spill and Offshore Drilling (U.S. GPO / GovInfo)"
+    },
+    {
+      "id": "s3",
+      "title": "Report Regarding the Causes of the April 20, 2010 Macondo Well Blowout",
+      "url": "https://www.bsee.gov/sites/bsee.gov/files/reports/safety/dwhfinal.pdf",
+      "publisher": "BOEMRE / U.S. Coast Guard Joint Investigation Team"
+    },
+    {
+      "id": "s4",
+      "title": "Deepwater Horizon Joint Investigation - Report of Investigation Volume I (U.S. Coast Guard), redacted final, 2011-07-07",
+      "url": "https://www.bsee.gov/sites/bsee.gov/files/reports/safety/2-deepwaterhorizon-roi-uscg-volume-i-20110707-redacted-final.pdf",
+      "publisher": "U.S. Coast Guard / BOEMRE"
+    },
+    {
+      "id": "s5",
+      "title": "Investigation Report Volume 1 - Deepwater Horizon (explosion, fire and loss of well control)",
+      "url": "https://www.csb.gov/assets/1/7/vol_1_final.pdf",
+      "publisher": "U.S. Chemical Safety and Hazard Investigation Board (CSB)"
+    },
+    {
+      "id": "s6",
+      "title": "Investigation Report Volume 2 - Deepwater Horizon (blowout preventer failure analysis)",
+      "url": "https://www.csb.gov/assets/1/7/vol_2_final_version.pdf",
+      "publisher": "U.S. Chemical Safety and Hazard Investigation Board (CSB)"
+    },
+    {
+      "id": "s7",
+      "title": "CSB Board Approves Final Report Finding Deepwater Horizon Blowout Preventer Failed Due to Unrecognized Pipe Buckling Phenomenon",
+      "url": "https://www.csb.gov/csb-board-approves-final-report-finding-deepwater-horizon-blowout-preventer-failed-due-to-unrecognized-pipe-buckling-phenomenon-during-emergency-well-control-efforts-on-april-20-2010-leading-to-environmental-disaster-in-gulf-of-mexico/",
+      "publisher": "U.S. Chemical Safety and Hazard Investigation Board (CSB)"
+    },
+    {
+      "id": "s8",
+      "title": "Deepwater Horizon Oil Spill Final Programmatic Damage Assessment and Restoration Plan - Chapter 2: Incident Overview",
+      "url": "https://www.gulfspillrestoration.noaa.gov/media/document/chapter-2incident-overview508pdf",
+      "publisher": "NOAA (Deepwater Horizon Natural Resource Damage Assessment Trustees)"
+    },
+    {
+      "id": "s9",
+      "title": "Appendix A - Deepwater Horizon (Oil Spill Discussion)",
+      "url": "https://www.boem.gov/oil-gas-energy/oil-spill-discussion-appendix",
+      "publisher": "U.S. Bureau of Ocean Energy Management (BOEM)"
+    },
+    {
+      "id": "s10",
+      "title": "BP Exploration and Production Inc. Pleads Guilty, Is Sentenced to Pay Record $4 Billion in Criminal Fines and Penalties for 2010 Gulf of Mexico Oil Spill",
+      "url": "https://www.justice.gov/archives/opa/pr/bp-exploration-and-production-inc-pleads-guilty-sentencedto-pay-record-4-billion-crimes",
+      "publisher": "U.S. Department of Justice, Office of Public Affairs"
+    },
+    {
+      "id": "s11",
+      "title": "BP Exploration and Production Inc. Agrees to Plead Guilty to Felony Manslaughter, Environmental Crimes and Obstruction of Congress",
+      "url": "https://www.justice.gov/archives/opa/pr/bp-exploration-and-production-inc-agrees-plead-guilty-felony-manslaughter-environmental",
+      "publisher": "U.S. Department of Justice, Office of Public Affairs"
+    },
+    {
+      "id": "s12",
+      "title": "Consent Decree Among Defendant BP Exploration & Production Inc. and the United States (Deepwater Horizon)",
+      "url": "https://www.epa.gov/sites/default/files/2016-02/documents/deepwaterhorizon-cd.pdf",
+      "publisher": "U.S. Environmental Protection Agency / U.S. Department of Justice"
+    },
+    {
+      "id": "s13",
+      "title": "Deepwater Horizon Oil Spill: Recent Activities and Ongoing Developments (CRS Report R42942)",
+      "url": "https://www.congress.gov/crs-product/R42942",
+      "publisher": "Congressional Research Service"
+    },
+    {
+      "id": "s14",
+      "title": "Deepwater Horizon oil spill (encyclopaedia entry: summary, effects, cause, cleanup)",
+      "url": "https://www.britannica.com/event/Deepwater-Horizon-oil-spill",
+      "publisher": "Encyclopaedia Britannica"
+    },
+    {
+      "id": "s15",
+      "title": "Deepwater Horizon - Chronology of the incident",
+      "url": "https://wwz.cedre.fr/en/Resources/Spills/Spills/Deepwater-Horizon/Chronology",
+      "publisher": "CEDRE (Centre of Documentation, Research and Experimentation on Accidental Water Pollution)"
+    },
+    {
+      "id": "s16",
+      "title": "Court upholds dismissal of manslaughter charges against BP employees",
+      "url": "https://www.reuters.com/article/business/court-upholds-dismissal-of-manslaughter-charges-against-bp-employees-idUSKBN0M809L/",
+      "publisher": "Reuters"
+    },
+    {
+      "id": "s17",
+      "title": "Former BP rig supervisor found not guilty in oil spill case",
+      "url": "https://www.reuters.com/article/legal/former-bp-rig-supervisor-found-not-guilty-in-oil-spill-case-idUSL2N1650MO/",
+      "publisher": "Reuters"
+    },
+    {
+      "id": "s18",
+      "title": "Deepwater Horizon Accident Investigation Report (BP internal investigation)",
+      "url": "https://www.bp.com/content/dam/bp/business-sites/en/global/corporate/pdfs/sustainability/issue-briefings/deepwater-horizon-accident-investigation-report.pdf",
+      "publisher": "BP p.l.c. (industry source; operator's own investigation, presented with BP's stated limitations)"
+    },
+    {
+      "id": "s19",
+      "title": "Order in re: Oil Spill by the Oil Rig 'Deepwater Horizon' in the Gulf of Mexico, MDL No. 2179 (E.D. La.), 2015-10-05",
+      "url": "https://www.laed.uscourts.gov/sites/default/files/OilSpill/Orders/10052015Order(DismissalofStates%2015439).pdf",
+      "publisher": "United States District Court, Eastern District of Louisiana"
+    }
+  ]
+}

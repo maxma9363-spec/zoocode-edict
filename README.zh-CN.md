@@ -61,13 +61,30 @@ ZooCode 内置了五个模式：`architect`、`code`、`ask`、`debug` 和 `orch
 
 ### 一个具体实例：调研一起事件并构建一个可浏览的 demo
 
-假设你对它说：*「调研 Deepwater Horizon 漏油事故 —— 起因、时间线、关键人物 —— 并构建一个小型 Web 应用，让用户可以浏览这些调研结果。」*
+#### ✅ 已真实落地 —— 可直接浏览的交付物
+
+这个实例不再是"假设"。下面这个"调研 + 构建"的任务已经被真实执行，并交付为一个**静态、可浏览的 demo**，包含三大视图 —— **时间线**、**起因**、**关键人物** —— 每一条结论都可回溯到其来源。
+
+| | 入口 | 使用方式 |
+|---|------|----------|
+| 🔗 | **线上演示（GitHub Pages）** | [https://maxma9363-spec.github.io/zoocode-edict/](https://maxma9363-spec.github.io/zoocode-edict/) —— *需先在仓库中启用 GitHub Pages 后才会生效，详见 [`deploy/README-pages.md`](deploy/README-pages.md)* |
+| 💻 | **本地运行（随时可用）** | `python3 -m http.server 8000 --directory demo`，然后访问 [http://localhost:8000/](http://localhost:8000/) |
+| 📂 | **Demo 源文件** | [`demo/`](demo/) —— [`index.html`](demo/index.html) · [`styles.css`](demo/styles.css) · [`app.js`](demo/app.js) · [`data/findings.json`](demo/data/findings.json) |
+| 📖 | **部署说明** | [`deploy/README-pages.md`](deploy/README-pages.md) —— [`pages.yml`](.github/workflows/pages.yml) |
+
+> ⚠️ **诚实标注：** Pages 站点**目前尚未上线**。发布工作流（[`.github/workflows/pages.yml`](.github/workflows/pages.yml)）已随仓库交付，但只有在推送代码、并将 **Settings → Pages → Source** 设为 **GitHub Actions** 之后，站点才会真正可访问。在此之前，请使用上面的本地命令查看 demo。
+
+**数据概览：** 13 条时间线 · 7 条起因 · 17 位人物与机构（12 名个人 + 5 个机构） · 19 条来源 —— 均已交叉引用。
+
+#### 这个 demo 是如何产出的
+
+下面是这个 demo 所源自的那一条请求：*「调研 Deepwater Horizon 漏油事故 —— 起因、时间线、关键人物 —— 并构建一个小型 Web 应用，让用户可以浏览这些调研结果。」*
 
 这是一个"调研 + 构建"的任务，既包含前端（可浏览的页面），也包含后端（支撑页面的数据）。
 
 **使用单一内置模式时**，一个 agent 必须在同一个上下文里完成调研、决策、编写前后端、测试和文档。如果它一开始就选错了数据模型，这个选择会一路不受检查地传播到最后。
 
-**使用 zoocode-edict 时**，同一个任务会流经一条流水线：
+**使用 zoocode-edict 时**，同一个任务会流经一条流水线 —— 这正是上面那个 demo 实际走过的路径：
 
 | 步骤 | 角色 | 发生了什么 |
 |------|------|------------|
@@ -83,7 +100,7 @@ ZooCode 内置了五个模式：`architect`、`code`、`ask`、`debug` 和 `orch
 | 10 | **刑部** | **终审** —— 在签署交付前，对代码 + 文档 + 部署做全量回归。 |
 | 11 | **回奏** | 结果经汇总后返回给你。 |
 
-方案在动工**之前**被审查，产出在交付**之前**被验证，问题被**回退**而非蒙混交付。
+方案在动工**之前**被审查，产出在交付**之前**被验证，问题被**回退**而非蒙混交付。本节开头的可浏览 demo，正是这条路径的最终产物。
 
 ### 逐项对比
 
@@ -101,7 +118,7 @@ ZooCode 内置了五个模式：`architect`、`code`、`ask`、`debug` 和 `orch
 
 ## 安装与使用
 
-> ⚠️ **特别说明：** *户部*默认配置使用自定义的 [Poe Perplexity MCP Server](LINK) 进行联网检索与深度调研。如果你不使用该 server，可以在 ZooCode GUI 中轻松调整*户部*的 system prompt，使其匹配你本地的工具配置。
+> ⚠️ **特别说明：** *户部*默认配置使用一个自定义的 Poe Perplexity MCP server 进行联网检索与深度调研。如果你不使用该 server，可以在 ZooCode GUI 中轻松调整*户部*的 system prompt，使其匹配你本地的工具配置。
 
 zoocode-edict 提供**三个跨平台安装脚本**，请按操作系统选用：
 

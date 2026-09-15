@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="An interactive summary of the causes, timeline and key figures of the Deepwater Horizon / Macondo well blowout (April 20, 2010), with primary-source citations." />
+  <title>Deepwater Horizon — Causes, Timeline &amp; Key Figures</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <p class="eyebrow">Incident Dossier</p>
+      <h1 id="page-title">Deepwater Horizon</h1>
+      <p id="page-summary" class="summary">Loading incident summary&hellip;</p>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="Sections">
+    <div class="wrap tabs-inner" role="tablist">
+      <button class="tab is-active" role="tab" data-view="timeline" aria-selected="true" id="tab-timeline" aria-controls="view-timeline">Timeline</button>
+      <button class="tab" role="tab" data-view="causes" aria-selected="false" id="tab-causes" aria-controls="view-causes">Causes</button>
+      <button class="tab" role="tab" data-view="figures" aria-selected="false" id="tab-figures" aria-controls="view-figures">Key Figures</button>
+    </div>
+  </nav>
+
+  <main id="main" class="wrap">
+    <!-- Status / error region: never leaves a blank screen -->
+    <div id="status" class="status" role="status" aria-live="polite">Loading data&hellip;</div>
+
+    <section id="view-timeline" class="view" role="tabpanel" aria-labelledby="tab-timeline" hidden>
+      <h2 class="view-title">Timeline of the Disaster</h2>
+      <p class="view-lede">Key events from the blowout through the final legal settlements, in chronological order.</p>
+      <ol id="timeline-list" class="timeline"></ol>
+    </section>
+
+    <section id="view-causes" class="view" role="tabpanel" aria-labelledby="tab-causes" hidden>
+      <h2 class="view-title">Root &amp; Contributing Causes</h2>
+      <p class="view-lede">Official investigations attributed the disaster to a chain of failures rather than a single fault.</p>
+      <div id="causes-list" class="cards"></div>
+    </section>
+
+    <section id="view-figures" class="view" role="tabpanel" aria-labelledby="tab-figures" hidden>
+      <h2 class="view-title">Key Figures &amp; Organizations</h2>
+      <p class="view-lede">People and institutions central to the incident, response and litigation.</p>
+
+      <h3 class="group-title">People</h3>
+      <div id="figures-people" class="cards"></div>
+
+      <h3 class="group-title">Organizations</h3>
+      <div id="figures-orgs" class="cards"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <h2 class="view-title">Sources</h2>
+      <p class="view-lede">All findings are drawn from the following primary and reference sources.</p>
+      <ol id="sources-list" class="sources"></ol>
+      <p class="disclaimer">This page is a static, offline-capable summary compiled for demonstration purposes. Citations link to publicly available official reports and reputable references.</p>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

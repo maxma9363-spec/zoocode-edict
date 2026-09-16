@@ -342,6 +342,10 @@ zoocode-edict/
 
 ---
 
+## AI 使用说明
+
+本项目中，安装脚本与 `custom_modes.yaml` 由作者编写；`README.md` 由 zoocode-edict 生成初稿，并经作者审核修改；`demo/`、`deploy/` 与 `showcase/` 目录由 zoocode-edict 根据作者的需求与引导生成，并经作者测试与调整。
+
 ## 致谢与许可
 
 本项目的提示词设计 —— 即 `custom_modes.yaml` 中的角色定义 —— **大量改编自 [cft0808/edict](https://github.com/cft0808/edict)**。感谢原作者提出的「三省六部」多智能体协作理念。

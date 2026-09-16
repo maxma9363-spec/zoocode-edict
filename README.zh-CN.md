@@ -59,20 +59,16 @@ ZooCode 内置了五个模式：`architect`、`code`、`ask`、`debug` 和 `orch
 | **回退机制（Rollback）** | 刑部会检查产出的质量，若不达标可要求重做。 |
 | **上下文管理（Context Managing）** | 各部拥有独立上下文，太子与各部门之间则共享上下文 |
 
-### 一个具体实例：调研一起事件并构建一个可浏览的 demo
+### 一个实例：Deepwater Horizon 漏油事故网页
 
-#### ✅ 已真实落地 —— 可直接浏览的交付物
-
-这个实例不再是"假设"。下面这个"调研 + 构建"的任务已经被真实执行，并交付为一个**静态、可浏览的 demo**，包含三大视图 —— **时间线**、**起因**、**关键人物** —— 每一条结论都可回溯到其来源。
+下文所述的这项「调研 + 构建」任务，已经落地并交付为一个**静态、可浏览的 demo**，包含三大视图 —— **时间线（Timeline）**、**起因（Causes）**、**关键人物（Key Figures）** —— 每一条结论都可回溯到其可溯源的来源。
 
 | | 入口 | 使用方式 |
 |---|------|----------|
-| 🔗 | **线上演示（GitHub Pages）** | [https://maxma9363-spec.github.io/zoocode-edict/](https://maxma9363-spec.github.io/zoocode-edict/) —— *需先在仓库中启用 GitHub Pages 后才会生效，详见 [`deploy/README-pages.md`](deploy/README-pages.md)* |
+| 🔗 | **线上演示（GitHub Pages）** | [https://maxma9363-spec.github.io/zoocode-edict/](https://maxma9363-spec.github.io/zoocode-edict/) |
 | 💻 | **本地运行（随时可用）** | `python3 -m http.server 8000 --directory demo`，然后访问 [http://localhost:8000/](http://localhost:8000/) |
 | 📂 | **Demo 源文件** | [`demo/`](demo/) —— [`index.html`](demo/index.html) · [`styles.css`](demo/styles.css) · [`app.js`](demo/app.js) · [`data/findings.json`](demo/data/findings.json) |
 | 📖 | **部署说明** | [`deploy/README-pages.md`](deploy/README-pages.md) —— [`pages.yml`](.github/workflows/pages.yml) |
-
-> ⚠️ **诚实标注：** Pages 站点**目前尚未上线**。发布工作流（[`.github/workflows/pages.yml`](.github/workflows/pages.yml)）已随仓库交付，但只有在推送代码、并将 **Settings → Pages → Source** 设为 **GitHub Actions** 之后，站点才会真正可访问。在此之前，请使用上面的本地命令查看 demo。
 
 **数据概览：** 13 条时间线 · 7 条起因 · 17 位人物与机构（12 名个人 + 5 个机构） · 19 条来源 —— 均已交叉引用。
 
@@ -82,9 +78,9 @@ ZooCode 内置了五个模式：`architect`、`code`、`ask`、`debug` 和 `orch
 
 这是一个"调研 + 构建"的任务，既包含前端（可浏览的页面），也包含后端（支撑页面的数据）。
 
-**使用单一内置模式时**，一个 agent 必须在同一个上下文里完成调研、决策、编写前后端、测试和文档。如果它一开始就选错了数据模型，这个选择会一路不受检查地传播到最后。
+**使用 zoocode 内置模式时**，orchestrator 会通过 `new_task` 工具派发任务。任务也许能够完成，但如果它一开始就选定了一个糟糕的数据模型，或者产生幻觉，这个错误就会一路不受检查地留到最后，从而损害产出的质量。
 
-**使用 zoocode-edict 时**，同一个任务会流经一条流水线 —— 这正是上面那个 demo 实际走过的路径：
+**使用 zoocode-edict 时**，同一个任务会流经一条流水线 —— 这正是上方那个 demo 实际走过的路径：
 
 | 步骤 | 角色 | 发生了什么 |
 |------|------|------------|
@@ -101,6 +97,8 @@ ZooCode 内置了五个模式：`architect`、`code`、`ask`、`debug` 和 `orch
 | 11 | **回奏** | 结果经汇总后返回给你。 |
 
 方案在动工**之前**被审查，产出在交付**之前**被验证，问题被**回退**而非蒙混交付。本节开头的可浏览 demo，正是这条路径的最终产物。
+
+📜 [这个 demo 真实的产出过程 —— 推理轨迹整理稿](showcase/reasoning-trace.zh-CN.md)
 
 ### 逐项对比
 
@@ -316,12 +314,17 @@ Linux 分支的逻辑与 macOS 对称（相同的三级校验与备份流程）�
 
 ```
 zoocode-edict/
-├── custom_modes.yaml      # 角色定义（三省六部）
-├── install.bat            # Windows 安装脚本
-├── install.sh             # macOS / Linux 安装脚本
-├── install.py             # 跨平台安装脚本（Python 3）
-├── LICENSE                # MIT
-└── README.md / README.zh-CN.md
+├── .github/workflows/pages.yml # GitHub Pages 发布工作流（把 demo/ 作为站点根发布）
+├── custom_modes.yaml           # 角色定义（三省六部）
+├── demo/                       # Deepwater Horizon 示例应用：静态前端（index.html / styles.css / app.js）与数据（data/findings.json）
+├── deploy/                     # 该 demo 的部署说明（README-pages.md），含方案取舍、启用步骤与回滚
+├── showcase/                   # 推理轨迹整理稿（reasoning-trace.md 及中文版）；完整任务文件已上传至此
+├── install.bat                 # Windows 安装脚本
+├── install.sh                  # macOS / Linux 安装脚本
+├── install.py                  # 跨平台安装脚本（Python 3）
+├── .gitignore                  # 忽略规则
+├── LICENSE                     # MIT
+└── README.md / README.zh-CN.md # 英文 README 及其简体中文版
 ```
 
 ---

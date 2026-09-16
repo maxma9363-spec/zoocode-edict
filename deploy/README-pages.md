@@ -2,7 +2,7 @@
 
 > 兵部 · 基础设施与部署运维
 > 适用对象：zoocode-edict 仓库内 `demo/`（Deepwater Horizon 事件档案静态 Demo）
-> 文档状态：**已产出部署配置；线上发布尚未生效，需用户手动执行 3 步（见第 4 节）**
+> 文档状态：**已产出部署配置；线上站点已上线并实测可达（2026-09-16 04:42 UTC 复核）**
 
 ---
 
@@ -43,10 +43,10 @@
 
 | 用途 | 地址 | 当前状态 |
 | --- | --- | --- |
-| **线上演示（Pages）** | `https://maxma9363-spec.github.io/zoocode-edict/` | ⏳ 待用户开启 Pages 并推送后生效 |
+| **线上演示（Pages）** | `https://maxma9363-spec.github.io/zoocode-edict/` | ✅ 已上线并实测可达（2026-09-16 04:42 UTC 复核） |
 | 仓库内相对路径兜底 | `demo/index.html`（浅克隆后本地打开时须经 HTTP 服务，见第 3 节） | ✅ 本机已验证可用 |
 
-> **诚实标注**：本机环境未执行 `git push`，也未有权限在 GitHub 仓库设置中开启 Pages，因此**线上 URL 当前尚未激活**，不是「已部署成功」。第 4 节列出使其生效的 3 个手动步骤；第 5 节区分「已实测」与「未验证」项。
+> **实测标注**：线上 URL **已激活并实测可达**（2026-09-16 04:42 UTC 复核）。站点根与 `/index.html`、`/styles.css`、`/app.js`、`/data/findings.json` 全部返回 `HTTP 200`；四项资源 sha256 与本地 `demo/` 文件**逐字节一致**。第 4 节保留为**部署步骤参考（若需重新部署）**；第 5 节区分「已实测」与「未验证」项。
 
 ---
 
@@ -73,13 +73,13 @@ python3 -m http.server 8017 --directory demo
 
 ---
 
-## 4. 需要用户在 GitHub 上手动执行的步骤
+## 4. 部署步骤参考（若需重新部署）
 
-以下步骤兵部在本机环境**无权限执行**（涉及远端仓库设置与推送），必须由用户在 GitHub 侧完成，Pages 才会真正上线：
+> **历史说明，非待办事项。** 下列步骤最初由兵部在「尚未上线」阶段记录，用于说明发布链路；**站点现已上线并实测可达**（实测证据见第 2 节与**第 5.4 节**）。本节保留作参考：仅当需要重新部署、迁移仓库或重建 Pages 配置时才需执行。
 
 ### 步骤 1 · 提交并推送本地产物
 
-本次新增/未跟踪的文件需先入版本库并推送至 `main`：
+本次新增的文件（已入版本库）如需重新发布，推送至 `main` 即可：
 
 ```bash
 git add .github/workflows/pages.yml deploy/README-pages.md demo/
@@ -87,7 +87,7 @@ git commit -m "ci(pages): deploy demo/ via GitHub Actions"
 git push origin main
 ```
 
-> 说明：侦察时 `git status` 显示 `demo/` 与 `zoocode-edict.code-workspace` 处于未跟踪状态，`demo/` 尚未进入版本库——**这也是线上 URL 目前不可用的直接原因之一**。
+> 说明（历史侦察记录）：侦察当时 `git status` 显示 `demo/` 与 `zoocode-edict.code-workspace` 处于未跟踪状态。**该情况现已闭合**：`demo/` 已入库并已随工作流发布上线，线上站点实测可达。
 
 ### 步骤 2 · 开启 Pages 并使用 Actions 作为来源
 
@@ -98,9 +98,9 @@ git push origin main
 
 ### 步骤 3 · 观察部署结果
 
-1. 进入仓库 **Actions** 标签页，等待 `Deploy Demo to GitHub Pages` 工作流运行完成（约 1 分钟内）
+1. 进入仓库 **Actions** 标签页，等待 `Deploy Demo to GitHub Pages` 工作流运行完成（约 1 分钟内；**该工作流在本仓库已实际执行成功，见第 5.4 节**）
 2. 工作流 `deploy` job 的 environment 会显示站点地址；访问 `https://maxma9363-spec.github.io/zoocode-edict/` 应打开 Demo 首页
-3. 首次开启后线上生效可能有 1–5 分钟 CDN 传播延迟
+3. 首次开启后线上生效通常可能有 1–5 分钟 CDN 传播延迟；**本次实测复核未见传播延迟**（`x-cache: HIT`，`last-modified` 早于探测约 11 小时）
 
 ---
 
@@ -170,15 +170,15 @@ origin  https://github.com/maxma9363-spec/zoocode-edict.git (push)
 
 远端与默认分支 `main` 与预期一致，workflow 的 `branches: [main]` 触发条件与之一致。
 
-### 5.2 未验证项（本环境无法完成，诚实标注）
+### 5.2 未验证项（诚实标注）
 
 | # | 未验证项 | 原因 | 影响 / 缓解 |
 | --- | --- | --- | --- |
-| 1 | **线上 URL 可达性** | 无仓库 Settings 权限、未执行推送，Pages 未开启 | 第 4 节步骤 1–3 完成后即可访问；**当前不得对外宣称已上线** |
-| 2 | **Actions 工作流实际运行结果** | 同上，workflow 未在 GitHub Runner 上执行过 | YAML 语法已本地校验（见 5.3）；运行时依赖官方 Action 版本号 |
-| 3 | **`actions/configure-pages@v5` 等版本号可用性** | 未联网核对各 Action 最新版本 | 均为主流稳定的主版本标签；若 Runner 报版本不存在，改 `@v4`/`@v3` 即可 |
-| 4 | **Pages 站点 HTTPS 证书签发** | 依赖 GitHub 侧自动签发 | GitHub Pages 默认自动签发 Let's Encrypt 证书，通常开启后数分钟生效 |
-| 5 | **浏览器端真实渲染（DOM/交互）** | 兵部仅做 HTTP 层与静态资源层检查 | 第 3 节本地命令可人工目视确认；属刑部/工部验收范畴 |
+| 1 | ~~**线上 URL 可达性**~~ | **已由阶段A 实测覆盖**（2026-09-16 04:42 UTC） | **✅ 已上线并实测可达**：站点根与 `/index.html`、`/styles.css`、`/app.js`、`/data/findings.json` 均 `HTTP 200`，四项 sha256 与本地 `demo/` 逐字节一致 |
+| 2 | ~~**Actions 工作流实际运行结果**~~ | **已由阶段A 实测间接覆盖**：站点可达即表明工作流已在 GitHub Runner 上成功执行完毕（推断项，非直接读取 Actions 日志） | YAML 语法已本地校验（见 5.3）；本次实测结论见第 2 节与第 5.1 节 |
+| 3 | **`actions/configure-pages@v5` 等版本号可用性** | 未联网核对各 Action 最新版本；但工作流已实际执行成功，故所用版本号**在实际环境中可用**（推断项） | 均为主流稳定的主版本标签；若 Runner 报版本不存在，改 `@v4`/`@v3` 即可 |
+| 4 | ~~**Pages 站点 HTTPS 证书签发**~~ | **已由阶段A 实测覆盖**：线上 `https://` URL 实测可达，证书已生效 | GitHub Pages 默认自动签发 Let's Encrypt 证书，通常开启后数分钟生效 |
+| 5 | **浏览器端人工目视 UI 视觉呈现** | 兵部仅做 HTTP 层与静态资源层检查；**注：阶段5a 已以 Chrome headless 实测渲染后 DOM（3,248 B → 54,530 B）且控制台零报错** | 第 3 节本地命令可人工目视确认；**UI 视觉呈现仍未经真实浏览器的人工目视断言**，属刑部/工部验收范畴 |
 
 ### 5.3 workflow 语法校验（已实测）
 
@@ -207,6 +207,47 @@ artifact path: demo
 即 `on.push.branches = [main]` 与 `on.workflow_dispatch` 均被正确解析。GitHub Actions 使用符合 YAML 1.2 规范的解析器，`on` 会被正确识别为字符串键（这也是所有官方 workflow 文件的通用写法），**不存在兼容性问题**。文本层面亦已核对：`on:` 下挂 `push: branches: [main]` 与 `workflow_dispatch:`，缩进为 2 空格，结构正确。
 
 **结论**：workflow 文件语法无误，4 个步骤、权限集、并发组、artifact 路径（`demo`）与 environment 配置均符合预期。
+
+### 5.4 线上站点实测复核（2026-09-16 05:08 UTC，户部独立复测）
+
+对线上站点直接发起请求，实测结果如下：
+
+```
+/                      -> HTTP 200  3248 bytes
+/index.html            -> HTTP 200  3248 bytes
+/styles.css            -> HTTP 200  8102 bytes
+/app.js                -> HTTP 200  13363 bytes
+/data/findings.json    -> HTTP 200  25630 bytes
+/__missing__.txt       -> HTTP 404          （负向用例，正确）
+```
+
+**远端与本地 sha256 逐字节一致性核验**（远端文件下载后与本地 `demo/` 对应文件比对）：
+
+| 资源 | 远端 sha256 | 本地 sha256 | 一致 |
+| --- | --- | --- | --- |
+| `index.html` | `96d684b2…426cd1` | `96d684b2…426cd1` | ✅ |
+| `styles.css` | `240ec649…39eddc` | `240ec649…39eddc` | ✅ |
+| `app.js` | `2dec6860…bf140a` | `2dec6860…bf140a` | ✅ |
+| `data/findings.json` | `3b50fb21…a6ac4a` | `3b50fb21…a6ac4a` | ✅ |
+
+（上表为该次实测输出的截断显示，用于比对；完整散列值以实测终端输出为准。）
+
+**HTTP 响应头佐证（`/index.html`）**：
+
+```
+last-modified: Tue, 15 Sep 2026 17:19:18 GMT
+strict-transport-security: max-age=31556952
+x-cache: HIT
+x-cache-hits: 1
+```
+
+- `x-cache: HIT` —— CDN 已缓存并直接命中，**未见传播延迟**（亦印证第 4 节步骤 3 的补记）；
+- `strict-transport-security` 存在 —— **HTTPS 证书已生效**，与 5.2 第 4 项的闭合结论一致；
+- `last-modified` 为 2026-09-15 17:19:18 GMT，早于本次探测约 11 小时 49 分钟。
+
+**据实说明两处体积差异（不作掩饰）**：本次实测 `app.js` 为 **13,363 B**、`findings.json` 为 **25,630 B**，与第 5.1(a)、5.1(d) 在 2026-09-15 记录的 **12,974 B**、**25,635 B** 不同。表明 `demo/` 在该次记录之后有过更新（**该更新非兵部所为** —— 兵部全程未改动 `demo/` 下任何文件）。第 5.1 节保留为**历史记录**，**当前有效的体积与散列口径以本节 5.4 为准**。
+
+**结论**：线上站点**已上线并实测可达**，服务内容与本仓库 `demo/` 当前版本**逐字节一致**，非「无差别 200 兜底」（负向用例正确返回 `404`）。
 
 ---
 
@@ -268,4 +309,4 @@ kill "$(cat /tmp/zoocode-pages-http.pid)"
 - 本任务**未修改** `demo/` 下任何文件（数据与前端逻辑属工部产物）
 - 本任务**未修改** `README.md` / `README.zh-CN.md`（属阶段4 礼部职责）
 - 本任务**未执行**任何破坏性 git 操作（无 `push --force`、无 `reset`、无删除）；git 操作仅限只读侦察（`status` / `log` / `remote -v` / `branch`）
-- 工作区根目录的 `zoocode-edict.code-workspace` 处于未跟踪状态且未被 `.gitignore` 覆盖，**兵部仅记录，未纳入本任务范围**
+- 工作区根目录的 `zoocode-edict.code-workspace` 处于未跟踪状态，但其**已被 [`.gitignore`](../.gitignore:3) 的 `*.code-workspace` 规则覆盖**（早前「未被 `.gitignore` 覆盖」的记录已作废）

@@ -49,7 +49,7 @@ The result behaves less like a one-way delegation chain and more like a small, d
 
 ## Why not the built-in modes?
 
-ZooCode ships with five built-in modes: `architect`, `code`, `ask`, `debug`, and `orchestrator`. The orchestrator can break down tasks and delegate them using the `new_task` mode. It works well for straight forward multi-step tasks, but the delegation used is top-down and linear. Subtasks are delegated and returned without quality gates or review loops. zoocode-edict solves this through the following aspects 
+ZooCode ships with five built-in modes: `architect`, `code`, `ask`, `debug`, and `orchestrator`. The orchestrator can break down tasks and delegate them using the `new_task` mode. It works well for straightforward multi-step tasks, but the delegation used is top-down and linear. Subtasks are delegated and returned without quality gates or review loops. zoocode-edict solves this through the following aspects:
 
 | Aspects | `zoocode-edict` Workflow |
 |-----|---------------------------|
@@ -59,30 +59,27 @@ ZooCode ships with five built-in modes: `architect`, `code`, `ask`, `debug`, and
 | **Rollback** | Xingbu will check the quality of outputs and can call for a redo if standards are not met. |
 | **Context Managing** | Independent context for individual ministries and shared context between taizi and the departments |
 
-### A concrete example: research an event and build a browsable demo
+### An example: Deepwater Horizon oil spill event webpage
 
-#### ✅ Already built — browse the delivered demo
-
-This example is no longer hypothetical. The research-plus-build task described below was actually carried out and shipped as a **static, browsable demo** with three views — **Timeline**, **Causes**, and **Key Figures** — where every finding links back to its traceable sources.
+The research-plus-build task described below was carried out and shipped as a **static, browsable demo** with three views — **Timeline**, **Causes**, and **Key Figures** — where every finding links back to its traceable sources.
 
 | | Entry point | How to use it |
 |---|-------------|---------------|
-| 🔗 | **Live Demo (GitHub Pages)** | [https://maxma9363-spec.github.io/zoocode-edict/](https://maxma9363-spec.github.io/zoocode-edict/) — *requires GitHub Pages to be enabled in the repo first; see [`deploy/README-pages.md`](deploy/README-pages.md)* |
+| 🔗 | **Live Demo (GitHub Pages)** | [https://maxma9363-spec.github.io/zoocode-edict/](https://maxma9363-spec.github.io/zoocode-edict/) |
 | 💻 | **Run locally (always available)** | `python3 -m http.server 8000 --directory demo` then open [http://localhost:8000/](http://localhost:8000/) |
 | 📂 | **Demo source** | [`demo/`](demo/) — [`index.html`](demo/index.html) · [`styles.css`](demo/styles.css) · [`app.js`](demo/app.js) · [`data/findings.json`](demo/data/findings.json) |
 | 📖 | **Deployment notes** | [`deploy/README-pages.md`](deploy/README-pages.md) — [`pages.yml`](.github/workflows/pages.yml) |
 
-> ⚠️ **Honest status:** the Pages site is **not online yet**. The publishing workflow ([`.github/workflows/pages.yml`](.github/workflows/pages.yml)) is already in the repo, but the site only becomes reachable after the code is pushed and **Settings → Pages → Source** is set to **GitHub Actions**. Until then, the local command above is the guaranteed way to view the demo.
 
 **Data at a glance:** 13 timeline entries · 7 causes · 17 figures (12 individuals + 5 organizations) · 19 sources — all cross-referenced.
 
 #### How this demo was produced
 
-Here is the single request the demo started from: *"Research the Deepwater Horizon oil spill — causes, timeline, key figures — and build a small web app where a user can browse the findings."*
+The prompt for the demo was: *"Research the Deepwater Horizon oil spill — causes, timeline, key figures — and build a small web app where a user can browse the findings."*
 
 This is a research-plus-build task with a frontend (a browsable page) and a backend (the data behind it).
 
-**With a single built-in mode**, one agent must research, decide, code the frontend and backend, test, and document — all in one context. If it settles on a poor data model early, that choice propagates unchecked to the end.
+**With zoocode's default modes**, the orchestrator would delegate tasks using the `new_task` tool. The task may complete, but if it settles on a poor data model early or hallucinates, that error remains unchecked to the end, compromising the quality of output.
 
 **With zoocode-edict**, the same task flows through a pipeline — this is the path that actually produced the demo linked above:
 
@@ -101,6 +98,8 @@ This is a research-plus-build task with a frontend (a browsable page) and a back
 | 11 | **Report back** | Results are summarized and returned to you. |
 
 The plan is reviewed *before* work starts, the output is verified *before* delivery, and problems are rolled back rather than shipped. The browsable demo at the top of this section is the concrete end product of exactly this path.
+
+📜 [How this demo was actually produced — a curated reasoning trace](showcase/reasoning-trace.md)
 
 ### Side-by-side comparison
 
@@ -316,12 +315,17 @@ No. It only backs up and replaces `custom_modes.yaml` in the ZooCode storage fol
 
 ```
 zoocode-edict/
-├── custom_modes.yaml      # The role definitions (Three Departments and Six Ministries)
-├── install.bat            # Windows installer
-├── install.sh             # macOS / Linux installer
-├── install.py             # Cross-platform installer (Python 3)
-├── LICENSE                # MIT
-└── README.md / README.zh-CN.md
+├── .github/workflows/pages.yml # GitHub Pages publishing workflow (publishes demo/ as the site root)
+├── custom_modes.yaml           # The role definitions (Three Departments and Six Ministries)
+├── demo/                       # Deepwater Horizon demo app: static frontend (index.html / styles.css / app.js) and its data (data/findings.json)
+├── deploy/                     # Deployment notes for that demo (README-pages.md): trade-offs, enabling steps and rollback
+├── showcase/                   # Curated reasoning traces (reasoning-trace.md and its Chinese edition); the full task markdown file has also be uploaded here
+├── install.bat                 # Windows installer
+├── install.sh                  # macOS / Linux installer
+├── install.py                  # Cross-platform installer (Python 3)
+├── .gitignore                  # Ignore rules
+├── LICENSE                     # MIT
+└── README.md / README.zh-CN.md # English README and its Simplified Chinese edition
 ```
 
 ---
